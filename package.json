@@ -1,7 +1,13 @@
 {
   "name": "KFC",
   "nativescript": {
-    "id": "org.nativescript.KFC"
+    "id": "org.nativescript.KFC",
+    "tns-ios": {
+      "version": "5.1.0"
+    },
+    "tns-android": {
+      "version": "5.1.0"
+    }
   },
   "version": "0.0.0",
   "scripts": {
