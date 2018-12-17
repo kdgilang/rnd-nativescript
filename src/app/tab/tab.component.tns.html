@@ -2,24 +2,20 @@
 (selectedIndexChanged)="onSelectedIndexChanged($event)"
 androidOffscreenTabLimit="1"
 selectedTabTextColor="#a3080c"
-androidSelectedTabHighlightColor="#a3080c"
-androidTabsPosition="bottom">
-    <StackLayout *tabItem="{title: 'Home', iconSource: 'res://icon'}">
+androidTabsPosition="bottom" class="icon">
+    <StackLayout *tabItem="{title: '&#xe904;'}">
         <StackLayout>
-            <Label [text]="tabSelectedIndexResult" class="h2 m-t-16 text-center" textWrap="true"></Label>
-            <Button text="Content Tab 1" (tap)="changeTab()" class="btn btn-primary btn-active"></Button>
+            <page-router-outlet></page-router-outlet>
         </StackLayout>
     </StackLayout>
-    <StackLayout *tabItem="{title: 'Pay', iconSource: 'res://icon'}">
+    <StackLayout *tabItem="{title: '&#xe938;'}">
         <StackLayout>
-            <Label [text]="tabSelectedIndexResult" class="h2 m-t-16 text-center" textWrap="true"></Label>
-            <Button text="Content Tab 2" (tap)="changeTab()" class="btn btn-primary btn-active"></Button>
+            <page-router-outlet></page-router-outlet>
         </StackLayout>
     </StackLayout>
-    <StackLayout *tabItem="{title: 'Pocket', iconSource: 'res://icon'}">
+    <StackLayout *tabItem="{title: '&#xe935;'}">
         <StackLayout>
-            <Label [text]="tabSelectedIndexResult" class="h2 m-t-16 text-center" textWrap="true"></Label>
-            <Button text="Content Tab 3" (tap)="changeTab()" class="btn btn-primary btn-active"></Button>
+            <page-router-outlet></page-router-outlet>
         </StackLayout>
     </StackLayout>
 </TabView>

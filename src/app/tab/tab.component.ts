@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { alert } from "tns-core-modules/ui/dialogs";
 import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab',
@@ -11,7 +12,7 @@ export class TabComponent implements OnInit {
 
     public tabSelectedIndex: number;
 
-    constructor() {
+    constructor(private router: Router) {
         this.tabSelectedIndex = 0;
     }
 
@@ -28,6 +29,7 @@ export class TabComponent implements OnInit {
     onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
         if (args.oldIndex !== -1) {
             const newIndex = args.newIndex;
+            this.router.navigate(['home']);
         }
     }
 
