@@ -1,7 +1,9 @@
 /* Add mobile styles for the component here.  */
 #tabView {
 	tab-background-color: white;
-}
-.icon {
-	font-size: 25px;
+	tab-text-color: #666666;
+	font-size: 12;
+	padding: 320;
+	text-transform: capitalize;
+    /*selected-tab-text-color: rgb(255, 255, 255);*/
 }
