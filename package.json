@@ -2,10 +2,10 @@
   "name": "KFC",
   "nativescript": {
     "id": "org.nativescript.KFC",
-    "tns-android": {
+    "tns-ios": {
       "version": "5.1.0"
     },
-    "tns-ios": {
+    "tns-android": {
       "version": "5.1.0"
     }
   },
@@ -26,7 +26,6 @@
     "@angular/common": "~7.0.0",
     "@angular/compiler": "~7.0.0",
     "@angular/core": "~7.0.0",
-    "@angular/fire": "^5.1.1",
     "@angular/forms": "~7.0.0",
     "@angular/http": "~7.0.0",
     "@angular/platform-browser": "~7.0.0",
@@ -35,6 +34,7 @@
     "core-js": "^2.5.4",
     "firebase": "^5.7.1",
     "nativescript-angular": "~7.0.0",
+    "nativescript-plugin-firebase": "^7.6.0",
     "nativescript-theme-core": "~1.0.4",
     "reflect-metadata": "~0.1.8",
     "rxjs": "^6.2.0",

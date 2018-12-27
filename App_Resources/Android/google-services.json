@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "138675517769",
+    "firebase_url": "https://firekfc-c5682.firebaseio.com",
+    "project_id": "firekfc-c5682",
+    "storage_bucket": "firekfc-c5682.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138675517769:android:25dc1d383cd442c3",
+        "android_client_info": {
+          "package_name": "org.nativescript.KFC"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138675517769-vchf9u61qt49t0nbncm2pbafumpi03qk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmIOLF9EOINNeDbISLHUosawWUfr4-KuY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
