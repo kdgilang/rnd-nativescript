@@ -1,5 +1,37 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<!-- <ActionBar [title]="title"></ActionBar> -->
-<StackLayout  class="p-20">
-    <Label text="Welcome to {{ title }}!" class="h1 text-center" textWrap="true"></Label>
+<StackLayout class="container">
+	<!-- HEADER START -->
+	<StackLayout class="header bg-red">
+		<StackLayout class="c-btn-header" horizontalAlignment="right" orientation="horizontal">
+			<Button text="&#xe951;" class="btn-icon icon"></Button>
+			<Button text="&#xe971;" class="btn-icon icon"></Button>
+		</StackLayout>
+		<StackLayout class="text">
+    		<Label text="Good morning {{ user.nick_name }}!" class="title" textWrap="true"></Label>
+    		<Label text="Start your day with our delicious meals" class="subtitle" textWrap="true"></Label>
+		</StackLayout>				
+		<FlexboxLayout justifyContent="space-between" alignItems="center" class="widget-point">
+			<StackLayout verticalAlignment="middle" orientation="horizontal">
+				<StackLayout verticalAlignment="middle">
+					<Image src="res://icon" rowSpan="2" width="38" height="38" margin="3"></Image>
+				</StackLayout>
+				<StackLayout verticalAlignment="middle" class="entry-point">
+				    <Label [text]="user.point" class="point-number" textWrap="true"></Label>
+				    <Label text="Points" class="point-text" textWrap="true"></Label>
+				</StackLayout>
+			</StackLayout>				
+			<StackLayout verticalAlignment="middle" horizontalAlignment="right" width="100">
+		    	<Button text="more" textWrap="true" class="btn"></Button>
+			</StackLayout>
+		</FlexboxLayout>
+	</StackLayout>  <!-- END HEADER -->
+
+	<!-- CONTENT START -->
+	<StackLayout class="m-t-20 p-r-10 p-l-10">
+		<app-feature></app-feature>
+	</StackLayout>
+	<StackLayout class="m-t-20 m-b-20 p-l-15 p-r-15">
+		<app-banner></app-banner>
+	</StackLayout>
+	<!-- CONTENT END -->
 </StackLayout>

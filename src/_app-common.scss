@@ -2,3 +2,40 @@
 // This is where the vast majority of your CSS code goes.
 @import 'font';
 @import 'app-variables';
+
+.container {
+	background-color: #efefef;
+}
+.btn-icon {
+	background-color: transparent;
+	// height: 20;
+	text-align: center;
+	width: 40;
+	z-index: 0;
+}
+.bg-red {
+	background-color: $color2;
+}
+.bg-body {
+	background-color: #efefef;
+}
+.img-rounded {
+	border-radius: 8;
+}
+.header {
+	color: #ffffff;
+	padding: 20;
+	.title {
+		font-size: 28;
+		font-weight: bold;
+	}
+	.subtitle {
+		color: #EB8121;
+		font-size: 16;
+		margin-top: 5;
+	}
+	.btn-icon {
+		font-size: 18;
+		margin-right: 4;
+	}
+}

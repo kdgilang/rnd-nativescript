@@ -1,0 +1,17 @@
+/* Add mobile styles for the component here.  */
+.item-feature {
+	background-color: #ffffff;
+	border-radius: 10;
+	margin: 0 5;
+	padding: 15;
+	.text {
+		color: #333333;
+		font-size: 14;
+	}
+	.icon {
+		color: #a3080c; 
+		font-size: 35;
+		margin-top: 25;
+		text-align: right;
+	}
+}
