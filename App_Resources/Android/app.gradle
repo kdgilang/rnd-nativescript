@@ -9,7 +9,8 @@ android {
   defaultConfig {  
     generatedDensities = []
     applicationId = "org.nativescript.KFC" 
-    
+    multiDexEnabled true
+    generatedDensities = []
     //override supported platforms
     // ndk {
     //       abiFilters.clear()
@@ -20,4 +21,7 @@ android {
   aaptOptions {  
     additionalParameters "--no-version-vectors"  
   }  
+  dexOptions {
+    javaMaxHeapSize "4g"
+  }
 } 
