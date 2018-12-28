@@ -1,14 +1,20 @@
-<FlexboxLayout class="feature-list" justifyContent="space-between" alignItems="center">
-	<StackLAyout width="200" class="item-feature">
-		<Label text="In Store Order" class="text" textWrap="true"></Label>
-		<Label text="&#xe9a3;" class="icon"></Label>
-	</StackLAyout>
-	<StackLAyout width="200" class="item-feature">
-		<Label text="Delivery Order" class="text" textWrap="true"></Label>
-		<Label text="&#xe9b0;" class="icon"></Label>
-	</StackLAyout>
-	<StackLAyout width="200" class="item-feature">
-		<Label text="Loyalty & Rewards" class="text" textWrap="true"></Label>
-		<Label text="&#xe905;" class="icon"></Label>
-	</StackLAyout>
-</FlexboxLayout>
+<GridLayout class="feature-list" columns="*, *, *" rows="auto" width="100%">
+	<Card:CardView row="0" col="0" class="item-feature m-10" radius="20" elevation="10">
+		<StackLayout class="p-x-10 p-y-15">
+			<Label text="In Store Order" class="text" textWrap="true"></Label>
+			<Label text="&#xe9a3;" class="icon"></Label>
+		</StackLayout>
+	</Card:CardView>
+	<Card:CardView row="0" col="1" class="item-feature m-10" radius="20" elevation="10">
+		<StackLayout class="p-x-10 p-y-15">
+			<Label text="Delivery Order" class="text" textWrap="true"></Label>
+			<Label text="&#xe9b0;" class="icon"></Label>
+		</StackLayout>
+	</Card:CardView>
+	<Card:CardView row="0" col="2" class="item-feature m-10" radius="20" elevation="10">
+		<StackLayout class="p-x-10 p-y-15">
+			<Label text="Loyalty & Rewards" class="text" textWrap="true"></Label>
+			<Label text="&#xe905;" class="icon"></Label>
+		</StackLayout>
+	</Card:CardView>
+</GridLayout>
