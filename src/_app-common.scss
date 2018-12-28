@@ -4,7 +4,7 @@
 @import 'app-variables';
 
 .container {
-	background-color: #efefef;
+	background-color: $gray;
 }
 .btn-icon {
 	background-color: transparent;
@@ -14,23 +14,23 @@
 	z-index: 0;
 }
 .bg-red {
-	background-color: $color2;
+	background-color: $primary;
 }
 .bg-body {
-	background-color: #efefef;
+	background-color: $gray;
 }
 .img-rounded {
 	border-radius: 8;
 }
 .header {
-	color: #ffffff;
+	color: $white;
 	padding: 20;
 	.title {
 		font-size: 28;
 		font-weight: bold;
 	}
 	.subtitle {
-		color: #EB8121;
+		color: $secondary;
 		font-size: 16;
 		margin-top: 5;
 	}
