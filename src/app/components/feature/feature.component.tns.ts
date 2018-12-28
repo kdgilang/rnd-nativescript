@@ -10,13 +10,14 @@ registerElement('CardView', () => CardView);
 })
 export class FeatureComponent implements OnInit {
 
-  constructor() { }
-  
+  constructor() {}
+
   onDelivery() {
   	console.log('go to delivery');
   }
 
   ngOnInit() {
+  	console.log('test');
   }
 
 }
