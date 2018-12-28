@@ -1,0 +1,38 @@
+.c-btn-header {
+	color: #ffffff;
+	text-align: right;
+}
+.header {
+	border-bottom-left-radius: 40;
+	border-bottom-right-radius: 40;
+	.text {
+		margin-top: 20;
+		margin-bottom: 40;
+	}
+	.widget-point {
+		background-color: #BB2819;
+		border-radius: 100;
+		padding: 15 20;
+		.point-number {
+			font-size: 25;
+		}
+		.point-text {
+			margin-top: -5;
+			font-size: 17;
+		}
+		.entry-point {
+			margin-left: 10;
+		}
+		.btn {
+			background-color: #FEE0C6;
+			border-radius: 100;
+			color: #a3080c;
+			font-weight: 500;
+			height: 35;
+			padding: 0;
+			text-transform: uppercase;
+			width: 150;
+			z-index: 0;
+		}
+	}
+}
