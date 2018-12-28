@@ -2,24 +2,8 @@
 (selectedIndexChanged)="onSelectedIndexChanged($event)"
 androidOffscreenTabLimit="1"
 selectedTabTextColor="#a3080c"
-androidSelectedTabHighlightColor="#a3080c"
 androidTabsPosition="bottom">
-    <StackLayout *tabItem="{title: 'Home', iconSource: 'res://icon'}">
-        <StackLayout>
-            <Label [text]="tabSelectedIndexResult" class="h2 m-t-16 text-center" textWrap="true"></Label>
-            <Button text="Content Tab 1" (tap)="changeTab()" class="btn btn-primary btn-active"></Button>
-        </StackLayout>
-    </StackLayout>
-    <StackLayout *tabItem="{title: 'Pay', iconSource: 'res://icon'}">
-        <StackLayout>
-            <Label [text]="tabSelectedIndexResult" class="h2 m-t-16 text-center" textWrap="true"></Label>
-            <Button text="Content Tab 2" (tap)="changeTab()" class="btn btn-primary btn-active"></Button>
-        </StackLayout>
-    </StackLayout>
-    <StackLayout *tabItem="{title: 'Pocket', iconSource: 'res://icon'}">
-        <StackLayout>
-            <Label [text]="tabSelectedIndexResult" class="h2 m-t-16 text-center" textWrap="true"></Label>
-            <Button text="Content Tab 3" (tap)="changeTab()" class="btn btn-primary btn-active"></Button>
-        </StackLayout>
-    </StackLayout>
+    <StackLayout *tabItem="{title: 'Home', iconSource: tabSelectedIndex == 0 ? 'res://icon_home_active' : 'res://icon_home', textTransform: 'capitalize'}"></StackLayout>
+    <StackLayout *tabItem="{title: 'Pay', iconSource: tabSelectedIndex == 1 ? 'res://icon_qrcode_active' : 'res://icon_qrcode', textTransform: 'capitalize'}"></StackLayout>
+    <StackLayout *tabItem="{title: 'Pocket', iconSource: tabSelectedIndex == 2 ? 'res://icon_pricetag_active' : 'res://icon_pricetag', textTransform: 'capitalize'}"></StackLayout>
 </TabView>

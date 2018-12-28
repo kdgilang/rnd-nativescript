@@ -1,6 +1,9 @@
 /* Add mobile styles for the component here.  */
 #tabView {
-	color: red;
-	background-color: white;
-	tab-background: white;
+	tab-background-color: white;
+	tab-text-color: #666666;
+	font-size: 12;
+	padding: 320;
+	text-transform: capitalize;
+    /*selected-tab-text-color: rgb(255, 255, 255);*/
 }
