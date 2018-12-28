@@ -1,11 +1,11 @@
 <StackLayout class="banner-list">
-  <GridLayout columns="*, *" rows="auto" width="100%" class="m-b-15">
+  <GridLayout columns="*, *" rows="auto" width="100%" class="m-b-15 p-x-15">
     <label row="0" col="0" class="banner-title" text="Whats on KFC"></label>
     <label row="0" col="1" class="banner-subtitle" text="View All"></label>
   </GridLayout>
   <ScrollView orientation="horizontal" sdkExampleTitle sdkToggleNavButton scrollBarIndicatorVisible="false">
     <StackLayout orientation="horizontal">
-      <Image *ngFor="let item of banners; index as i" [src]="item.image" height="150" class="img-rounded m-r-10"></Image>
+      <Image *ngFor="let item of banners; index as i" [src]="item.image" height="150" width="100%" stretch="aspectFill" class="banner-image m-l-15"></Image>
     </StackLayout>
   </ScrollView>
 </StackLayout>
