@@ -13,6 +13,10 @@ export class BannerComponent implements OnInit {
 
   }
 
+  test() {
+    console.log('test');
+  }
+
   ngOnInit() {
   	this.bannerService.getUser().subscribe(banners => this.banners = banners);
   }
