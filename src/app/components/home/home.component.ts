@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +7,9 @@ import { UserService } from '../../services/user.service';
 })
 export class HomeComponent implements OnInit {
   title = 'KFC';
-	private user: any;
-  constructor(private userService: UserService) { 
+
+  constructor() {
   }
 
-  ngOnInit() {
-  	this.userService.getUser().subscribe(user => {
-  		this.user = user;
-  	});
-  }
+  ngOnInit() {  }
 }
