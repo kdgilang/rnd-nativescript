@@ -19,17 +19,17 @@ export class TabComponent implements OnInit {
     onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
         if (args.oldIndex !== -1) {
             this.tabSelectedIndex = args.newIndex;
-            if(this.tabSelectedIndex  === 0) {
-                this.router.navigate(['front/home']);
-            } else if(this.tabSelectedIndex  === 1) {
-                this.router.navigate(['']);
-            } else if(this.tabSelectedIndex  === 2) {
-                this.router.navigate(['']);
-            }
+            // if(this.tabSelectedIndex  === 0) {
+            //     this.router.navigate(['front/home']);
+            // } else if(this.tabSelectedIndex  === 1) {
+            //     this.router.navigate(['']);
+            // } else if(this.tabSelectedIndex  === 2) {
+            //     this.router.navigate(['']);
+            // }
         }
     }
 
 	ngOnInit() {
-		this.router.navigate(['front/home']);
+		// this.router.navigate(['front/home']);
 	}
 }

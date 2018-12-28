@@ -1,0 +1,5 @@
+<ScrollView orientation="horizontal" sdkExampleTitle sdkToggleNavButton scrollBarIndicatorVisible="false">
+  <StackLayout orientation="horizontal">
+    <Image *ngFor="let item of banners; index as i" [src]="item.image" height="130" class="img-rounded m-r-10"></Image>
+  </StackLayout>
+</ScrollView>

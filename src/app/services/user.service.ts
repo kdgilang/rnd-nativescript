@@ -10,6 +10,7 @@ import { UserModel } from '../models/user.model';
 export class UserService {
   private user: UserModel;
 	private userCollection;
+  
   constructor() {
     firebase.initializeApp({
       persist: false
