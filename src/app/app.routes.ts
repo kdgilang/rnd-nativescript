@@ -6,7 +6,7 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 export const routes: Routes = [
   {
       path: '',
-      redirectTo: 'front/home',
+      redirectTo: 'front/catalog',
       pathMatch: 'full',
   },
   {
