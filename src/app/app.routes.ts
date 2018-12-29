@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { TabComponent } from './components/tab/tab.component';
 import { AddressComponent } from './components/address/address.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 
@@ -14,7 +14,7 @@ export const routes: Routes = [
     children: [
     	{
     		path: 'home',
-    		component: HomeComponent,
+    		component: TabComponent,
     	},
       {
         path: 'set-address',
