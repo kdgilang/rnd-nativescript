@@ -8,6 +8,7 @@ import { FeatureComponent } from './components/feature/feature.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AddressComponent } from './components/address/address.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
+import { ListComponent } from './components/list/list.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
@@ -24,6 +25,7 @@ import { CatalogComponent } from './components/catalog/catalog.component';
     BannerComponent,
     AddressComponent,
     CatalogComponent,
+    ListComponent,
   ],
   imports: [
     NativeScriptModule,
