@@ -16,8 +16,5 @@ export class FeatureComponent implements OnInit {
   	console.log('go to delivery');
   }
 
-  ngOnInit() {
-  	console.log('test');
-  }
-
+  ngOnInit() { }
 }
