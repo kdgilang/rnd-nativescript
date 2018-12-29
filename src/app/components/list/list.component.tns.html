@@ -1,1 +1,11 @@
-<Button text="list works!" class="btn btn-primary"></Button>
+<!--The content below is only a placeholder and can be replaced.-->
+<ListView [items]="orders" class="order-wrapper">
+    <ng-template let-orders="item" let-i="index" let-odd="odd" let-even="even">
+        <StackLayout orientation="vertical" class="order-list">
+            <GridLayout rows="auto" columns="auto *" marginBottom="10" marginTop="10">
+                <Image id="item" (tap)="onItemTap($event)" src="http://www.kfcku.com/assets/gallery/thumb/1411532182_162x144-resize.png" rowSpan="2" width="72" height="72" margin="3" verticalAlignment="top"></Image>
+                <Label [text]='orders.name' col="1" row="1" fontSize="14" horizontalAlignment="left" verticalAlignment="bottom" margin="3"></Label>
+            </GridLayout>
+        </StackLayout>
+    </ng-template>
+</ListView>
