@@ -11,4 +11,11 @@
 }
 .banner-image {
     border-radius: 10;
+    &.m-x-7 {
+    	margin-left: 7;
+    	margin-right: 7;
+    }
+    &.m-l-20 {
+    	margin-left: 20;
+    }
 }
