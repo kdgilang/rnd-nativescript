@@ -4,8 +4,8 @@
     <label row="0" col="1" class="banner-subtitle" text="View All"></label>
   </GridLayout>
   <ScrollView orientation="horizontal" sdkExampleTitle sdkToggleNavButton scrollBarIndicatorVisible="false">
-    <StackLayout orientation="horizontal" class="p-x-15">
-      <Image *ngFor="let item of banners; index as i" [src]="item.image" stretch="aspectFill" height="160" class="banner-image m-x-5"></Image>
+    <StackLayout orientation="horizontal" class="">
+      <Image *ngFor="let item of banners; index as i" [src]="item.image" stretch="aspectFill" height="145" class="banner-image m-x-8 {{i < 1 ? 'm-l-20' : ''}}"></Image>
     </StackLayout>
   </ScrollView>
 </StackLayout>
