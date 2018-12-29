@@ -6,6 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 import { TabComponent } from './components/tab/tab.component';
 import { FeatureComponent } from './components/feature/feature.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { AddressComponent } from './components/address/address.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { BannerComponent } from './components/banner/banner.component';
     TabComponent,
     FeatureComponent,
     BannerComponent,
+    AddressComponent,
+    CatalogComponent,
   ],
   imports: [
     BrowserModule,

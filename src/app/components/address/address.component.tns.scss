@@ -1,0 +1,28 @@
+/* Add mobile styles for the component here.  */
+.address {
+	.icon {
+		font-size: 25;
+	}
+	.title-bar {
+		font-size: 15;
+		font-weight: bold;
+		text-align: center;
+	}
+	.searchbar {
+		background-color: #ffffff;
+		border: none;
+		border-radius: 5;
+		color: #666666;
+		padding: 20px;
+	}
+	.btn {
+		background-color: #FDC143;
+		border-radius: 20;
+		color: #a3080c;
+		font-size: 16;
+		font-weight: bold;
+		padding: 15;
+		text-transform: uppercase;
+		width: 100%;
+	}
+}
