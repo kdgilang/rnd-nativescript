@@ -8,6 +8,7 @@ import { FeatureComponent } from './components/feature/feature.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AddressComponent } from './components/address/address.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
+import { ListComponent } from './components/list/list.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { CatalogComponent } from './components/catalog/catalog.component';
     BannerComponent,
     AddressComponent,
     CatalogComponent,
+    ListComponent,
   ],
   imports: [
     BrowserModule,
