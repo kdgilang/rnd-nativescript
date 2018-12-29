@@ -1,0 +1,18 @@
+<StackLayout class="container address">
+	<StackLayout class="header bg-red" orientation="horizontal">
+		<GridLayout columns="* * *" height="25" verticalAlignment="center">
+			<Label col="0" text="&#xea44;" class="icon" (tap)="goBack()"></Label>
+			<Label col="1" [text]="titleBar" class="title-bar"></Label>
+			<Label col="2"></Label>
+		</GridLayout>
+	</StackLayout>
+	<AbsoluteLAyout>
+		<StackLayout top="20" width="100%" class="p-x-20">
+			<SearchBar class="searchbar" hint="Search for a place address" text="" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)" 
+            textFieldBackgroundColor="#dddddd"></SearchBar>
+		</StackLayout>
+		<StackLAyout top="400" width="100%" class="p-x-20">
+			<Button class="btn" text="Confirm" (tap)="goCatalog()"></Button>
+		</StackLAyout>
+	</AbsoluteLAyout>
+</StackLayout>

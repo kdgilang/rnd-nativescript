@@ -1,0 +1,17 @@
+<StackLayout class="container order">
+	<StackLayout class="header bg-red" orientation="horizontal">
+		<GridLayout columns="* * *" height="25" verticalAlignment="center">
+			<Label col="0" text="&#xea44;" class="icon" (tap)="goBack()"></Label>
+			<Label col="1" [text]="titleBar" horizontalAlignment="center" class="title-bar"></Label>
+			<Label col="2" text="&#xe951;" horizontalAlignment="right" class="icon"></Label>
+		</GridLayout>
+	</StackLayout>
+	<StackLayout class="c-btn">
+		<GridLayout columns="* * * *" verticalAlignment="center">
+			<Button col="0" class="btn {{selectedTab === 0 ? 'active' : ''}}" (tap)="selectTab(0)" textWrap="true" text="ala carte"></Button>
+			<Button col="1" class="btn {{selectedTab === 1 ? 'active' : ''}}" (tap)="selectTab(1)" textWrap="true" text="combo"></Button>
+			<Button col="2" class="btn {{selectedTab === 2 ? 'active' : ''}}" (tap)="selectTab(2)" textWrap="true" text="beverages"></Button>
+			<Button col="3" class="btn {{selectedTab === 3 ? 'active' : ''}}" (tap)="selectTab(3)" textWrap="true" text="breakfast"></Button>
+		</GridLayout>
+	</StackLayout>
+</StackLayout>

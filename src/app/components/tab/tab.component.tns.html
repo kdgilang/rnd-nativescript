@@ -1,13 +1,17 @@
-<TabView id="tabView" [(ngModel)]="tabSelectedIndex" 
-(selectedIndexChanged)="onSelectedIndexChanged($event)"
-androidOffscreenTabLimit="1"
-selectedTabTextColor="#a3080c"
-androidTabsPosition="bottom">
-    <StackLayout *tabItem="{title: 'Home', iconSource: tabSelectedIndex == 0 ? 'res://icon_home_active' : 'res://icon_home', textTransform: 'capitalize'}" class="bg-body">
-    	<ScrollView>
-    		<app-home></app-home>
-    	</ScrollView>
-    </StackLayout>
-    <StackLayout *tabItem="{title: 'Pay', iconSource: tabSelectedIndex == 1 ? 'res://icon_qrcode_active' : 'res://icon_qrcode', textTransform: 'capitalize'}"></StackLayout>
-    <StackLayout *tabItem="{title: 'Pocket', iconSource: tabSelectedIndex == 2 ? 'res://icon_pricetag_active' : 'res://icon_pricetag', textTransform: 'capitalize'}"></StackLayout>
-</TabView>
+<Page xmlns="http://www.nativescript.org/tns.xsd">
+	<StackLayout>
+		<TabView id="tabView" [(ngModel)]="tabSelectedIndex" 
+		(selectedIndexChanged)="onSelectedIndexChanged($event)"
+		androidOffscreenTabLimit="1"
+		selectedTabTextColor="#a3080c"
+		androidTabsPosition="bottom">
+		    <StackLayout *tabItem="{title: 'Home', iconSource: tabSelectedIndex == 0 ? 'res://icon_home_active' : 'res://icon_home', textTransform: 'capitalize'}" class="bg-body">
+		    	<ScrollView>
+		    		<app-home></app-home>
+		    	</ScrollView>
+		    </StackLayout>
+		    <StackLayout *tabItem="{title: 'Pay', iconSource: tabSelectedIndex == 1 ? 'res://icon_qrcode_active' : 'res://icon_qrcode', textTransform: 'capitalize'}"></StackLayout>
+		    <StackLayout *tabItem="{title: 'Pocket', iconSource: tabSelectedIndex == 2 ? 'res://icon_pricetag_active' : 'res://icon_pricetag', textTransform: 'capitalize'}"></StackLayout>
+		</TabView>
+	</StackLayout>
+</Page>
