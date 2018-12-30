@@ -2,41 +2,12 @@
 	<StackLayout class="header bg-red" orientation="horizontal">
 		<GridLayout columns="* * *" height="25" verticalAlignment="center">
 			<Label col="0" text="&#xea44;" class="icon" (tap)="goBack()"></Label>
-			<Label col="1" [text]="titleBar" class="title-bar"></Label>
+			<Label col="1" text="Select Address" class="title-bar"></Label>
 			<Label col="2"></Label>
 		</GridLayout>
 	</StackLayout>
-	<AbsoluteLayout height="100%" width="100%" (tap)="clearFocus()">
-		<Image top="0" left="0" stretch="aspectFill" height="100%" width="100%"
-			   src="https://maps.googleapis.com/maps/api/staticmap?center=-8.671669902761545,115.2336151370157&zoom=16&size=608x1080&maptype=roadmap&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM">
-		</Image>
-		<FlexboxLayout top="0" left="0" height="100%" width="100%" flexDirection="column" justifyContent="space-between">
-			<StackLayout width="100%" class="m-x-20 m-t-20 p-15" borderRadius="10" backgroundColor="#ffffff">
-				<AbsoluteLayout>
-					<Label text="&#xe986;" class="icon magny"></Label>
-					<TextField #searchBar width="100%" secure="false" hint="Search for a place address" text='' class="searchbar" (focus)="onFocus()" (blur)="onBlur()">
-					</TextField>
-					<TextField #searchbarCloned width="100%" text='' class="searchbar searchbarCloned">
-					</TextField>
-
-				</AbsoluteLayout>
-				<StackLayout visibility="{{ showRecentSearch ? 'visible' : 'collapsed' }}">
-					<FlexboxLayout class="p-10" width="100%" justifyContent="space-between">
-						<label class="recent-title" text="Recent Address"></label>
-						<label class="recent-clear" text="Clear"></label>
-					</FlexboxLayout>
-					<StackLayout>
-						<label class="recent-item" text="Jalan Tukad Badung, IIC, 17"></label>
-						<label class="recent-item" text="Jalan By Pass Ngurah Rai No.123"></label>
-					</StackLayout>
-					<stackLayout>
-						<Label class="recent-item more" text="more..."></Label>
-					</stackLayout>
-				</StackLayout>			
-			</StackLayout>
-			<StackLAyout width="100%" class="p-x-20 m-b-20">
-				<Button class="btn" text="Confirm" (tap)="goCatalog()"></Button>
-			</StackLAyout>
-		</FlexboxLayout>
-	</AbsoluteLayout>
+	<MapView #mapView [latitude]="latitude" [longitude]="longitude" mapAnimationsEnabled=true
+    								[zoom]="zoom" [bearing]="bearing" 
+    								[tilt]="tilt" (mapReady)="onMapReady($event)" 
+									(markerSelect)="onMarkerEvent($event)" (cameraChanged)="onCameraChanged($event)" (cameraMove)="onCameraMove($event)"></MapView>
 </StackLayout>
