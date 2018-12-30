@@ -12,6 +12,9 @@ export class AddressComponent implements OnInit {
   private titleBar: string;
   private showRecentSearch: boolean;
 
+  @ViewChild("searchbarCloned") searchBarClonedRef: ElementRef;
+  @ViewChild("searchBar") searchBarRef: ElementRef;
+
   constructor(private page: Page, private routerEx: RouterExtensions) {
   	page.actionBarHidden = true;
     this.titleBar = 'Select Address';
@@ -25,30 +28,29 @@ export class AddressComponent implements OnInit {
   goCatalog() {
   	this.routerEx.navigate(['front/catalog'], {
       transition: {
-		name: isIOS ?  "none" : "fade",
-		duration: 300,
-		curve: "linear",
+    		name: isIOS ?  "none" : "fade",
+    		duration: 300,
+    		curve: "linear",
       }
   	})
   }
 
-  onFocusSearchBar(focusState:boolean) {
-    const searchBar: TextField = <TextField>this.searchBar.nativeElement;
-
-    if(focusState) {
-      console.log('focus...');
-      this.showRecentSearch = true;
-    } else {
-      console.log('unfocus...');
-      this.showRecentSearch = false;
-      searchBar.dismissSoftInput();
-    }
+  onFocus() {
+    this.showRecentSearch = true;
   }
 
-  @ViewChild("searchBar") searchBar: ElementRef;
-  ngOnInit() {
-    const searchBar: TextField = <TextField>this.searchBar.nativeElement;
+  onBlur() {
+    this.showRecentSearch = false;
+  }
 
+  clearFocus() {
+    const searchBar: TextField = <TextField>this.searchBarClonedRef.nativeElement;
+    searchBar.focus();
+    searchBar.dismissSoftInput();
+  }
+
+  ngOnInit() {
+    const searchBar: TextField = <TextField>this.searchBarRef.nativeElement;
     setTimeout(() => {
       searchBar.focus();
       this.showRecentSearch = true;

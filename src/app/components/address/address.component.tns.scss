@@ -13,8 +13,20 @@
 		border: none;
 		border-radius: 10;
 		color: #909094;
-		padding: 10 10;
+		padding: 10 10 10 37;
 		width: 100%;
+		z-index: 1;
+		&.searchbarCloned {
+			z-index: -1;
+			opacity: 0;
+		}
+	}
+	.magny {
+		color: #909094;
+		font-size: 16;
+		left: 12;
+		top: 15;
+		z-index: 1;
 	}
 	.btn {
 		background-color: #FDC143;
