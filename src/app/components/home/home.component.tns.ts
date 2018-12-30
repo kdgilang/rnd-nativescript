@@ -11,7 +11,7 @@ import { UserModel } from '../../models/user.model';
 })
 
 export class HomeComponent implements OnInit {
-	private user: UserModel;
+	private user: any;
 
   constructor(private userService: UserService, private page: Page) {
   	page.actionBarHidden = true;

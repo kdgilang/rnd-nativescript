@@ -15,6 +15,7 @@ export class CatalogComponent implements OnInit {
   	page.actionBarHidden = true;
   	this.titleBar = 'Order';
   	this.selectedTab = 0;
+    routerEx.navigate(['front/catalog/list/alacarte']);
   }
 
   selectTab(index) {
