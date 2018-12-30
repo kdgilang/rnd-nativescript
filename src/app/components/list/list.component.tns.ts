@@ -13,7 +13,7 @@ let orderCarte = ["Paket Mantap", "Chicken Big Burger", "Spicy Chicken Original"
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListComponent implements OnInit {
 
