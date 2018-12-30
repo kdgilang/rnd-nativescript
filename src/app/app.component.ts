@@ -46,7 +46,7 @@ export class AppComponent {
 				    cancelable: false // [Android only] Gets or sets if the dialog can be canceled by taping outside of the dialog.
 				}).then(() => {
 					if(isIOS) {
-				    	exit(0);
+				    	// exit(0);
 					} else {
 						application.android.foregroundActivity.finish();
 					}
