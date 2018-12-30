@@ -3,16 +3,16 @@
     <StackLayout class="order-wrapper">
         <!-- CONTENT START -->
         <StackLayout orientation="horizontal" class="order-list" *ngFor="let order of orders">
-            <GridLayout rows="auto" columns="*, 2*">
-                <StackLayout row="0" col="0" class="order-image-wrapper">
-                    <Button class="order-popup" text="x"></Button>
+            <GridLayout cols="10 *">
+                <StackLayout col="0" class="order-image-wrapper">
+                    <Button class="order-popup icon" text="&#xe901;"></Button>
                     <Image class="order-image" src="http://www.kfcku.com/assets/gallery/thumb/1411532182_162x144-resize.png" width="80" height="80"></Image>
                     <Label class="order-price" text="Rp. 45.000,-" fontSize="14" horizontalAlignment="center" verticalAlignment="center"></Label>
                 </StackLayout>
-                <StackLayout row="0" col="1" class="order-desc-wrapper">
-                    <Label class="order-title" [text]='order.name' fontSize="26" horizontalAlignment="left" textWrap="true"></Label>
-                    <Label class="order-desc" text="1 Ayam Hot Crispy + 1 Nasi + 1 Pepsi Kaleng" textWrap="true" fontSize="18" horizontalAlignment="left"></Label>
-                    <Button class="order-add" text="+ Add" fontSize="20" horizontalAlignment="right" verticalAlignment="bottom"></Button>
+                <StackLayout col="1" class="order-desc-wrapper">
+                    <Label class="order-title" [text]='order.name' horizontalAlignment="left" textWrap="true"></Label>
+                    <Label class="order-desc" text="1 Ayam Hot Crispy + 1 Nasi + 1 Pepsi Kaleng" textWrap="true" horizontalAlignment="left"></Label>
+                    <Button class="order-add" text="+ Add"horizontalAlignment="right" verticalAlignment="bottom"></Button>
                 </StackLayout>
             </GridLayout>
         </StackLayout>
