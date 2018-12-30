@@ -1,9 +1,11 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {registerElement} from "nativescript-angular/element-registry";
+import { Page } from 'tns-core-modules/ui/page';
+import { RouterExtensions } from "nativescript-angular/router";
+import { isIOS } from 'tns-core-modules/platform';
 import { MapView, Marker, Position } from 'nativescript-google-maps-sdk';
 
 registerElement("MapView", () => require("nativescript-google-maps-sdk").MapView);
-
 
 @Component({
   selector: 'app-address',
@@ -11,6 +13,8 @@ registerElement("MapView", () => require("nativescript-google-maps-sdk").MapView
   styleUrls: ['./address.component.scss']
 })
 export class AddressComponent implements OnInit {
+  private titleBar: string;
+  private showRecentSearch: boolean;
   private mapView: MapView;
   private latitude:number = -8.078873;
   private longitude:number = 115.170894;
@@ -19,8 +23,49 @@ export class AddressComponent implements OnInit {
   private tilt:number = 0;
   private lastCamera: String;
 
-  constructor() {
-  
+  @ViewChild("searchbarCloned") searchBarClonedRef: ElementRef;
+  @ViewChild("searchBar") searchBarRef: ElementRef;
+
+  constructor(private page: Page, private routerEx: RouterExtensions) {
+    page.actionBarHidden = true;
+    this.titleBar = 'Select Address';
+    this.showRecentSearch = false;
+  }
+
+  goBack() {
+  	this.routerEx.backToPreviousPage();
+  }
+
+  goCatalog() {
+  	this.routerEx.navigate(['front/catalog'], {
+      transition: {
+    		name: isIOS ?  "none" : "fade",
+    		duration: 300,
+    		curve: "linear",
+      }
+  	})
+  }
+
+  onFocus() {
+    this.showRecentSearch = true;
+  }
+
+  onBlur() {
+    this.showRecentSearch = false;
+  }
+
+  clearFocus() {
+    const searchBar: TextField = <TextField>this.searchBarClonedRef.nativeElement;
+    searchBar.focus();
+    searchBar.dismissSoftInput();
+  }
+
+  ngOnInit() {
+    const searchBar: TextField = <TextField>this.searchBarRef.nativeElement;
+    setTimeout(() => {
+      searchBar.focus();
+      this.showRecentSearch = true;
+    }, 500);
   }
 
   onMapReady(event) {
@@ -53,8 +98,5 @@ export class AddressComponent implements OnInit {
 
   onCameraMove(args) {
     console.log("Camera moving: " + JSON.stringify(args.camera));
-  }
-  
-  ngOnInit() {
   }
 }

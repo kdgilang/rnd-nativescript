@@ -8,4 +8,55 @@
 		font-weight: bold;
 		text-align: center;
 	}
+	.searchbar {
+		background-color: #e0e0e0;
+		border: none;
+		border-radius: 10;
+		color: #909094;
+		padding: 10 10 10 37;
+		width: 100%;
+		z-index: 1;
+		&.searchbarCloned {
+			z-index: -1;
+			opacity: 0;
+		}
+	}
+	.magny {
+		color: #909094;
+		font-size: 16;
+		left: 12;
+		top: 15;
+		z-index: 1;
+	}
+	.btn {
+		background-color: #FDC143;
+		border-radius: 100;
+		color: #a3080c;
+		font-size: 16;
+		font-weight: bold;
+		padding: 15;
+		text-transform: uppercase;
+		width: 100%;
+	}
+
+	.recent-title {
+		color: #6f6f6f;
+		font-size: 12;
+	}
+	.recent-clear {
+		color: #c3c3c3;
+		font-size: 12;
+	}
+	.recent-item {
+		border-top-width: 1;
+		border-top-color: #edeeee;
+		color: #4a4a4a;
+		font-size: 16;
+		padding: 10;
+
+		&.more {
+			color: #c3c3c3;
+			font-size: 12;
+		}
+	}
 }
