@@ -44,13 +44,13 @@ export class AddressComponent implements OnInit {
   }
 
   clearFocus() {
-    const searchBar: TextField = <TextField>this.searchBarClonedRef.nativeElement;
+    const searchBar = this.searchBarClonedRef.nativeElement;
     searchBar.focus();
     searchBar.dismissSoftInput();
   }
 
   ngOnInit() {
-    const searchBar: TextField = <TextField>this.searchBarRef.nativeElement;
+    const searchBar = this.searchBarRef.nativeElement;
     setTimeout(() => {
       searchBar.focus();
       this.showRecentSearch = true;

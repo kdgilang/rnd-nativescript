@@ -5,6 +5,9 @@
 
 .container {
 	background-color: $gray;
+	&.catalog {
+		background-color: $white;
+	}
 }
 .btn-icon {
 	background-color: transparent;

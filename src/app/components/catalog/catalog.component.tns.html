@@ -1,4 +1,4 @@
-<StackLayout class="container order">
+<StackLayout class="container catalog">
 	<StackLayout class="header bg-red" orientation="horizontal">
 		<GridLayout columns="* * *" height="25" verticalAlignment="center">
 			<Label col="0" text="&#xea44;" class="icon" (tap)="goBack()"></Label>
@@ -8,13 +8,13 @@
 	</StackLayout>
 	<StackLayout class="c-btn">
 		<GridLayout columns="* * * *" verticalAlignment="center">
-			<Button col="0" class="btn {{selectedTab === 0 ? 'active' : ''}}" (tap)="selectTab(0)" textWrap="true" text="ala carte"></Button>
-			<Button col="1" class="btn {{selectedTab === 1 ? 'active' : ''}}" (tap)="selectTab(1)" textWrap="true" text="combo"></Button>
-			<Button col="2" class="btn {{selectedTab === 2 ? 'active' : ''}}" (tap)="selectTab(2)" textWrap="true" text="beverages"></Button>
-			<Button col="3" class="btn {{selectedTab === 3 ? 'active' : ''}}" (tap)="selectTab(3)" textWrap="true" text="breakfast"></Button>
+			<Button col="0" [nsRouterLink]="['list/alacarte']" class="btn {{selectedTab === 0 ? 'active' : ''}}" (tap)="selectTab(0)" textWrap="true" text="ala carte"></Button>
+			<Button col="1" [nsRouterLink]="['list/combo']" class="btn {{selectedTab === 1 ? 'active' : ''}}" (tap)="selectTab(1)" textWrap="true" text="combo"></Button>
+			<Button col="2" [nsRouterLink]="['list/beverage']" class="btn {{selectedTab === 2 ? 'active' : ''}}" (tap)="selectTab(2)" textWrap="true" text="beverages"></Button>
+			<Button col="3" [nsRouterLink]="['list/breakfast']" class="btn {{selectedTab === 3 ? 'active' : ''}}" (tap)="selectTab(3)" textWrap="true" text="breakfast"></Button>
 		</GridLayout>
 	</StackLayout>
-	<StackLayout class="bg-white p-y-20 p-x-5">
-		<app-list></app-list>
+	<StackLayout class="p-y-15 p-x-5">
+		<router-outlet></router-outlet>
 	</StackLayout>
 </StackLayout>
