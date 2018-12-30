@@ -3,18 +3,30 @@
     <StackLayout class="order-wrapper">
         <!-- CONTENT START -->
         <StackLayout orientation="horizontal" class="order-list" *ngFor="let order of orders">
-            <GridLayout cols="10 *">
-                <StackLayout col="0" class="order-image-wrapper">
-                    <Button class="order-popup icon" text="&#xe901;"></Button>
-                    <Image class="order-image" src="http://www.kfcku.com/assets/gallery/thumb/1411532182_162x144-resize.png" width="80" height="80"></Image>
-                    <Label class="order-price" text="Rp. 45.000,-" fontSize="14" horizontalAlignment="center" verticalAlignment="center"></Label>
-                </StackLayout>
-                <StackLayout col="1" class="order-desc-wrapper">
-                    <Label class="order-title" [text]='order.name' horizontalAlignment="left" textWrap="true"></Label>
-                    <Label class="order-desc" text="1 Ayam Hot Crispy + 1 Nasi + 1 Pepsi Kaleng" textWrap="true" horizontalAlignment="left"></Label>
-                    <Button class="order-add" text="+ Add"horizontalAlignment="right" verticalAlignment="bottom"></Button>
-                </StackLayout>
-            </GridLayout>
+            <!-- <Card:CardView radius="2" shadowRadius="2"  elevation="15"> -->
+                <GridLayout columns="140, *">
+                    <AbsoluteLayout col="0" class="order-image-wrapper">
+                        <Label class="order-popup icon" text="&#xe901;"></Label>
+                        <StackLayout top="0" left="0" height="100%" width="100%" class="p-t-30 p-b-20 p-x-10 center">
+                            <Image class="order-image" src="https://picsum.photos/300/300/?random" width="80" height="80" verticalAlignment="center"></Image>
+                            <Label class="order-price" text="Rp. 45.000,-" horizontalAlignment="center" verticalAlignment="center" textWrap="true"></Label>
+                        </StackLayout>
+                    </AbsoluteLayout>
+                    <StackLayout col="1" class="order-desc-wrapper">
+                        <Label class="order-title" [text]='order.name' horizontalAlignment="left" textWrap="true"></Label>
+                        <Label class="order-desc" text="1 Ayam Hot Crispy + 1 Nasi + 1 Pepsi Kaleng" textWrap="true" horizontalAlignment="left"></Label>
+                        <StackLayout horizontalAlignment="right" verticalAlignment="bottom" orientation="horizontal">
+                            <StackLayout visibility="collapsed" orientation="horizontal">
+                                <Button class="order-add" text="&#xe926; Custom"></Button>
+                                <Button class="minus" text="-"></Button>
+                                <Label text="0"></Label>
+                                <Button class="plus" text="+"></Button>
+                            </StackLayout>
+                            <Button class="order-add" text="+ Add" android:style="height: 25; width: 70;"></Button>
+                        </StackLayout>
+                    </StackLayout>
+                </GridLayout>
+            <!-- </Card:CardView> -->
         </StackLayout>
         <!-- CONTENT END -->
     </StackLayout>
