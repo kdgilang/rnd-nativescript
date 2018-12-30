@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import * as firebase from 'nativescript-plugin-firebase/app';
+import { FirebaseService } from './firebase.service';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -10,16 +10,26 @@ export class BannerService {
   banners = new Array();
   private bannerCollection;
 
-  constructor() {
-    this.bannerCollection = firebase.firestore().collection("promotions");
+  constructor(private fireapp: FirebaseService) {
+    
   }
-  getUser() {
+
+  getBanners() {
     return new Observable(observer => {
-      this.bannerCollection.get().then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          this.banners.push(doc.data());
-        });
-        observer.next(this.banners);
+      this.fireapp.getConnection().then((res) => {
+        if(res) {
+          this.bannerCollection = this.fireapp.Firebase.firestore().collection("promotions");
+          this.bannerCollection.get().then(data => {
+            if(data.docSnapshots.length > 0) {
+              data.forEach(doc => {
+                this.banners.push(doc.data());
+              });
+              observer.next(this.banners);
+            } else {
+              observer.error();
+            }
+          });
+        }
       });
     });
   }

@@ -14,6 +14,10 @@ export class BannerComponent implements OnInit {
   }
 
   ngOnInit() {
-  	this.bannerService.getUser().subscribe(banners => this.banners = banners);
+  	this.bannerService.getBanners().subscribe(banners => {
+  		this.banners = banners;
+  	}, (err) => {
+  		console.log('connection error.');
+  	});
   }
 }

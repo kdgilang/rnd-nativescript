@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import * as firebase from 'nativescript-plugin-firebase/app';
 import { environment } from '../../environments/environment';
 import { UserModel } from '../models/user.model';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +11,26 @@ export class UserService {
   private user: UserModel;
 	private userCollection;
   
-  constructor() {
-    firebase.initializeApp({
-      persist: false
-    });
-    this.userCollection = firebase.firestore().collection("users");
+  constructor(private fireapp: FirebaseService) {
+
   }
+
 	getUser() {
     return new Observable(observer => {
-      this.userCollection.limit(1).get().then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          this.user = doc.data();
-        });
-        observer.next(this.user);
+      this.fireapp.getConnection().then((res) => {
+        if(res) {
+          this.userCollection = this.fireapp.Firebase.firestore().collection("users");
+          this.userCollection.limit(1).get().then(querySnapshot => {
+            querySnapshot.forEach(doc => {
+              this.user = doc.data();
+            });
+            if(this.user) {
+              observer.next(this.user);
+            } else {
+              observer.error();
+            }
+          });
+        }
       });
     });
     // firebase.getValue('/users')
