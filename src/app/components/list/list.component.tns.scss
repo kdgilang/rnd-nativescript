@@ -1,9 +1,40 @@
 /* Add mobile styles for the component here.  */
-
 .order-wrapper {
-    margin: 20;
     height: 100%;
     .order-list {
+        margin: 20;
+        border-radius: 5;
+        border-width: 0.5;
+        border-color: #888888;
+        background-color: #ffffff;
 
+        .order-image-wrapper {
+            border-right-width: 0.8;
+            padding: 20; 
+            border-color: #888888;
+
+            .order-popup {
+                width: 50;
+            }
+
+            .order-price {
+                font-weight: bold;
+                color: #a3080c;
+            }
+        }
+
+        .order-desc-wrapper {
+            padding: 20 15;
+            .order-desc {
+                margin-bottom: 50;
+            }
+            .order-add {
+                background-color: #FBC050;
+                color: #a3080c;
+                border-radius: 8;
+                font-weight: bold;
+                padding: 0;
+            }
+        }
     }
 }
