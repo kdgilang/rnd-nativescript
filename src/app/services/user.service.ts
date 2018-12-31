@@ -12,7 +12,7 @@ export class UserService {
 	private userCollection;
   
   constructor(private fireapp: FirebaseService) {
-
+    
   }
 
 	getUser() {

@@ -3,7 +3,6 @@ import { UserService } from '../../services/user.service';
 import { Page } from 'tns-core-modules/ui/page';
 import { UserModel } from '../../models/user.model';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
