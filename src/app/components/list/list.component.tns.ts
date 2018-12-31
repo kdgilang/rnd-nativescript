@@ -31,6 +31,9 @@ export class ListComponent implements OnInit {
       this.dataCatalog.qty[i] --;
       this.totalItem --;
       this.totalPrice = this.totalPrice - parseInt(this.catalog[i].price[0]);
+    } 
+    if(this.totalItem < 1) {
+      this.showCart = false;
     }
   }
 
