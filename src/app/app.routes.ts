@@ -7,7 +7,7 @@ import { ListComponent } from './components/list/list.component';
 export const routes: Routes = [
   {
       path: '',
-      redirectTo: 'front/home',
+      redirectTo: 'front/catalog',
       pathMatch: 'full',
   },
   {
