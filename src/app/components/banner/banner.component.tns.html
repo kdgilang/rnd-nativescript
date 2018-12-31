@@ -1,5 +1,13 @@
-<ScrollView orientation="horizontal" sdkExampleTitle sdkToggleNavButton scrollBarIndicatorVisible="false">
-  <StackLayout orientation="horizontal">
-    <Image *ngFor="let item of banners; index as i" [src]="item.image" height="130" class="img-rounded m-r-10"></Image>
-  </StackLayout>
-</ScrollView>
+<StackLayout class="banner-list">
+  <GridLayout columns="*, *" rows="auto" width="100%" class="m-b-15 p-x-20">
+    <label row="0" col="0" class="banner-title" text="Whats on KFC"></label>
+    <label row="0" col="1" class="banner-subtitle" text="View All"></label>
+  </GridLayout>
+  <ScrollView orientation="horizontal" sdkExampleTitle sdkToggleNavButton scrollBarIndicatorVisible="false">
+    <StackLayout orientation="horizontal">
+      <Image *ngFor="let item of banners; index as i" [src]="item.image" (loaded)="onLoad()" stretch="aspectFill" height="150" class="banner-image m-x-7 {{ i < 1 ? 'm-l-20' : '' }}"></Image>
+    </StackLayout>
+  </ScrollView>
+  <Label visibility="{{showError ? 'visible' : 'collapsed'}}" horizontalAlignment="center" text="Connection Error."></Label>
+  <ActivityIndicator horizontalAlignment="center" #activityIndicator [busy]="!showBanner" busyChange="" width="100" height="100" class="activity-indicator"></ActivityIndicator>
+</StackLayout>

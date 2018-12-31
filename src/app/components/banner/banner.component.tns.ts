@@ -8,12 +8,24 @@ import { BannerService } from '../../services/banner.service';
 })
 export class BannerComponent implements OnInit {
   private banners: any;
+  private showBanner: boolean = false;
+  private showError: boolean = false;
 
   constructor(private bannerService: BannerService) { 
 
   }
 
+  onLoad() {
+    this.showBanner = true;
+  }
+
   ngOnInit() {
-  	this.bannerService.getUser().subscribe(banners => this.banners = banners);
+  	this.bannerService.getBanners().subscribe(banners => {
+  		this.banners = banners;
+    }, (err) => {
+  		console.log('connection error.');
+      this.showBanner = true;
+      this.showError = true;
+  	});
   }
 }

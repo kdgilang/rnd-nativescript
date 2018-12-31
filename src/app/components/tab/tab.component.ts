@@ -28,8 +28,5 @@ export class TabComponent implements OnInit {
             // }
         }
     }
-
-	ngOnInit() {
-		// this.router.navigate(['front/home']);
-	}
+	ngOnInit() {}
 }

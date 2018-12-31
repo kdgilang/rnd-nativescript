@@ -1,0 +1,38 @@
+/* Add mobile styles for the component here.  */
+.catalog {
+	.icon {
+		font-size: 25;
+	}
+	.title-bar {
+		font-size: 15;
+		font-weight: bold;
+		text-align: center;
+	}
+	.c-btn {
+		background-color: #ffffff;
+		border-color: #ddd;
+		border-width: 0.5;
+	}
+	.btn {
+		background-color: #ffffff;
+		border-color: #ddd;
+		border-width: 0.5;
+		color: #333;
+		// color: #a3080c;
+		font-size: 10;
+		font-weight: bold;
+		margin: 0;
+		padding: 15 12;
+		text-transform: uppercase;
+		text-align: center;
+		width: 100%;
+		z-index: 0;
+		&.active {
+			background-color: #F1F3F7;
+			color: #a3080c;
+		}
+	}
+	.bg-white {
+		background-color: #ffffff;
+	}
+}

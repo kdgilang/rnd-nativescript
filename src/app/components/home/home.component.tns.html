@@ -1,36 +1,41 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <StackLayout class="container">
 	<!-- HEADER START -->
-	<StackLayout class="header bg-red">
-		<StackLayout class="c-btn-header" horizontalAlignment="right" orientation="horizontal">
-			<Button text="&#xe951;" class="btn-icon icon"></Button>
-			<Button text="&#xe971;" class="btn-icon icon"></Button>
-		</StackLayout>
-		<StackLayout class="text">
-    		<Label text="Good morning {{ user.nick_name }}!" class="title" textWrap="true"></Label>
-    		<Label text="Start your day with our delicious meals" class="subtitle" textWrap="true"></Label>
-		</StackLayout>				
-		<FlexboxLayout justifyContent="space-between" alignItems="center" class="widget-point">
-			<StackLayout verticalAlignment="middle" orientation="horizontal">
-				<StackLayout verticalAlignment="middle">
-					<Image src="res://icon" rowSpan="2" width="38" height="38" margin="3"></Image>
-				</StackLayout>
-				<StackLayout verticalAlignment="middle" class="entry-point">
-				    <Label [text]="user.point" class="point-number" textWrap="true"></Label>
-				    <Label text="Points" class="point-text" textWrap="true"></Label>
-				</StackLayout>
-			</StackLayout>				
-			<StackLayout verticalAlignment="middle" horizontalAlignment="right" width="100">
-		    	<Button text="more" textWrap="true" class="btn"></Button>
+	<AbsoluteLayout>
+		<StackLayout class="header bg-red" top="0" width="100%">
+			<StackLayout class="c-btn-header" horizontalAlignment="right" orientation="horizontal">
+				<Button text="&#xe951;" class="btn-icon icon m-r-5"></Button>
+				<Button text="&#xe971;" class="btn-icon icon"></Button>
 			</StackLayout>
-		</FlexboxLayout>
-	</StackLayout>  <!-- END HEADER -->
+			<StackLayout class="text" android:style="margin-bottom: 62" ios:style="margin-bottom: 55">
+				<Label text="Good morning {{ user.nick_name }}!" class="title" textWrap="true"></Label>
+				<Label text="Start your day with our delicious meals" class="subtitle" textWrap="true"></Label>
+			</StackLayout>				
+		</StackLayout>
+		<StackLayout width="100%" class="p-x-10" android:style="top: 185" ios:style="top: 155">
+			<FlexboxLayout justifyContent="space-between" alignItems="center" class="widget-point">
+				<StackLayout verticalAlignment="middle" orientation="horizontal">
+					<StackLayout verticalAlignment="middle">
+						<Image src="res://icon" rowSpan="2" width="38" height="38" margin="3"></Image>
+					</StackLayout>
+					<StackLayout verticalAlignment="middle" class="entry-point">
+						<Label [text]="user.point" class="point-number" textWrap="true"></Label>
+						<Label text="Points" class="point-text" textWrap="true"></Label>
+					</StackLayout>
+				</StackLayout>				
+				<StackLayout verticalAlignment="middle" horizontalAlignment="right" width="100">
+					<Button text="more" textWrap="true" class="btn"></Button>
+				</StackLayout>
+			</FlexboxLayout>
+		</StackLayout>
+	</AbsoluteLayout>
+	<!-- END HEADER -->
 
 	<!-- CONTENT START -->
-	<StackLayout class="m-t-20 p-r-10 p-l-10">
+	<StackLayout class="m-t-20 m-b-5 p-x-15">
 		<app-feature></app-feature>
 	</StackLayout>
-	<StackLayout class="m-t-20 m-b-20 p-l-15 p-r-15">
+	<StackLayout class="m-y-20 p-t-20" borderTopColor="#e1e2e4" borderTopWidth="1">
 		<app-banner></app-banner>
 	</StackLayout>
 	<!-- CONTENT END -->
