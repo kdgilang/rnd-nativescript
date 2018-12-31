@@ -55,7 +55,7 @@ export class ListComponent implements OnInit {
         });
         this.isCatalogLoaded = true;
       }, (err) => {
-        console.log('connection error.');
+        console.log('connection error!');
       });
     });
   }

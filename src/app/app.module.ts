@@ -10,7 +10,6 @@ import { AddressComponent } from './components/address/address.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { ListComponent } from './components/list/list.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
