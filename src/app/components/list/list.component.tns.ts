@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   private isCatalogLoaded: boolean = false;
   private showCart: boolean = false;
   private totalItem: number = 0;
+  private totalPrice: number = 0;
   private dataCatalog: any = {
     btn: [],
     qty: [],
@@ -29,18 +30,21 @@ export class ListComponent implements OnInit {
     if(this.dataCatalog.qty[i] > 0) {
       this.dataCatalog.qty[i] --;
       this.totalItem --;
+      this.totalPrice = this.totalPrice - parseInt(this.catalog[i].price[0]);
     }
   }
 
   onPlus(i) {
     this.dataCatalog.qty[i] ++;
     this.totalItem ++;
+    this.totalPrice = this.totalPrice + parseInt(this.catalog[i].price[0]);
   }
 
   onAdd(i) {
     this.showCart = true;
     this.dataCatalog.btn[i] = true;
     this.totalItem ++;
+    this.totalPrice = this.totalPrice + parseInt(this.catalog[i].price[0]);
   }
   
   ngOnInit() {
