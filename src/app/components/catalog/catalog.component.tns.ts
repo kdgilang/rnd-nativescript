@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page';
 import { RouterExtensions } from 'nativescript-angular/router';
 
@@ -27,5 +27,6 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 }

@@ -8,7 +8,6 @@ import { CatalogService } from '../../services/catalog.service';
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListComponent implements OnInit {
 
@@ -31,7 +30,10 @@ export class ListComponent implements OnInit {
       this.dataCatalog.qty[i] --;
       this.totalItem --;
       this.totalPrice = this.totalPrice - parseInt(this.catalog[i].price[0]);
-    } 
+    }
+    if(this.dataCatalog.qty[i] <= 0) {
+      this.dataCatalog.btn[i] = false;
+    }
     if(this.totalItem < 1) {
       this.showCart = false;
     }
@@ -46,6 +48,7 @@ export class ListComponent implements OnInit {
   onAdd(i) {
     this.showCart = true;
     this.dataCatalog.btn[i] = true;
+    this.dataCatalog.qty[i] ++;
     this.totalItem ++;
     this.totalPrice = this.totalPrice + parseInt(this.catalog[i].price[0]);
   }
@@ -58,7 +61,7 @@ export class ListComponent implements OnInit {
         this.catalog = catalog;
         this.catalog.forEach((v, i) => {
           this.dataCatalog.btn[i] = false;
-          this.dataCatalog.qty[i] = 1;
+          this.dataCatalog.qty[i] = 0;
         });
         this.isCatalogLoaded = true;
       }, (err) => {
