@@ -42,5 +42,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/nativescript_google_maps_api_key" />
 		<activity android:name="com.tns.ErrorReportActivity"/>
+		<uses-library
+			android:name="org.apache.http.legacy"
+			android:required="false" />
 	</application>
 </manifest>
