@@ -15,11 +15,16 @@ export class CatalogComponent implements OnInit {
   	page.actionBarHidden = true;
   	this.titleBar = 'Order';
   	this.selectedTab = 0;
-    routerEx.navigate(['front/catalog/list/alacarte']);
+    routerEx.navigate(['front/catalog/list/alacarte'], {queryParams: {selectedTab: 0}});
   }
 
-  selectTab(index) {
+  selectTab(index, key) {
   	this.selectedTab = index;
+    this.routerEx.navigate(['front/catalog/list', key], {
+      queryParams: {
+        selectedTab: index
+      }
+    });
   }
 
   goBack() {

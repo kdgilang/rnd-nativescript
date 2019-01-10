@@ -16,23 +16,41 @@ export class ListComponent implements OnInit {
   private showCart: boolean = false;
   private totalItem: number = 0;
   private totalPrice: number = 0;
-  private dataCatalog: any = {
-    btn: [],
-    qty: [],
-  };
+  private categoryCatalog: number = 0;
+  private dataCatalog: any = [
+    {
+      btn: [],
+      qty: [],
+    },
+    {
+      btn: [],
+      qty: [],
+    },
+    {
+      btn: [],
+      qty: [],
+    },
+    {
+      btn: [],
+      qty: [],
+    },
+  ];
 
   constructor(private catalogService: CatalogService, private route: ActivatedRoute) {
-  
+    this.route.queryParams.subscribe(params => {
+      this.isCatalogLoaded = false;
+      this.categoryCatalog = params.selectedTab;
+    });
   }
 
   onMinus(i) {
-    if(this.dataCatalog.qty[i] > 0) {
-      this.dataCatalog.qty[i] --;
+    if(this.dataCatalog[this.categoryCatalog].qty[i] > 0) {
+      this.dataCatalog[this.categoryCatalog].qty[i] --;
       this.totalItem --;
       this.totalPrice = this.totalPrice - parseInt(this.catalog[i].price[0]);
     }
-    if(this.dataCatalog.qty[i] <= 0) {
-      this.dataCatalog.btn[i] = false;
+    if(this.dataCatalog[this.categoryCatalog].qty[i] <= 0) {
+      this.dataCatalog[this.categoryCatalog].btn[i] = false;
     }
     if(this.totalItem < 1) {
       this.showCart = false;
@@ -40,30 +58,29 @@ export class ListComponent implements OnInit {
   }
 
   onPlus(i) {
-    this.dataCatalog.qty[i] ++;
+    this.dataCatalog[this.categoryCatalog].qty[i] ++;
     this.totalItem ++;
     this.totalPrice = this.totalPrice + parseInt(this.catalog[i].price[0]);
   }
 
   onAdd(i) {
     this.showCart = true;
-    this.dataCatalog.btn[i] = true;
-    this.dataCatalog.qty[i] ++;
+    this.dataCatalog[this.categoryCatalog].btn[i] = true;
+    this.dataCatalog[this.categoryCatalog].qty[i] = 1;
     this.totalItem ++;
     this.totalPrice = this.totalPrice + parseInt(this.catalog[i].price[0]);
   }
   
   ngOnInit() {
     this.isCatalogLoaded = false;
+
     this.route.params.forEach(params => {
       const key = params['key'];
       this.catalogService.getCatalog(key).subscribe(catalog => {
         this.catalog = catalog;
-        this.catalog.forEach((v, i) => {
-          this.dataCatalog.btn[i] = false;
-          this.dataCatalog.qty[i] = 0;
-        });
-        this.isCatalogLoaded = true;
+        setTimeout(() => {
+          this.isCatalogLoaded = true;
+        }, 1000);
       }, (err) => {
         console.log('connection error!');
       });
