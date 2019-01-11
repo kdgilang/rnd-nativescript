@@ -9,6 +9,9 @@ import { BannerComponent } from './components/banner/banner.component';
 import { AddressComponent } from './components/address/address.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { ListComponent } from './components/list/list.component';
+import { ModalDialogService } from 'nativescript-angular/modal-dialog';
+import { CustomOrderDialogComponent } from './components/custom-order-dialog/custom-order-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { ListComponent } from './components/list/list.component';
     AddressComponent,
     CatalogComponent,
     ListComponent,
+    CustomOrderDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    ModalDialogService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

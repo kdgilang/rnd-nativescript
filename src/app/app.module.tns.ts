@@ -11,6 +11,8 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { ListComponent } from './components/list/list.component';
 
 import { isIOS } from "tns-core-modules/platform";
+import { CustomOrderDialogComponent } from './components/custom-order-dialog/custom-order-dialog.component';
+
 declare var GMSServices: any;
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -34,6 +36,7 @@ if (isIOS) {
     AddressComponent,
     CatalogComponent,
     ListComponent,
+    CustomOrderDialogComponent
   ],
   imports: [
     NativeScriptModule,
@@ -41,6 +44,9 @@ if (isIOS) {
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA],
+  entryComponents: [
+    CustomOrderDialogComponent
+  ]
 })
 export class AppModule { }

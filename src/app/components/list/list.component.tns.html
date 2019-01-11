@@ -20,7 +20,7 @@
                                     <Label class="order-desc" [text]="item.description" textWrap="true" horizontalAlignment="left"></Label>
                                     <StackLayout horizontalAlignment="right" verticalAlignment="bottom" orientation="horizontal">
                                         <StackLayout visibility="{{dataCatalog[categoryCatalog].btn[i] ? 'visible' : 'collapsed'}}" orientation="horizontal" class="m-t-25">
-                                            <Button class="order-note square icon" text="&#xe926; Custom" verticalAlignment="center"></Button>
+                                            <Button (tap)="onCustom(i)" class="order-note square icon" text="&#xe926; Custom" verticalAlignment="center"></Button>
                                             <Button (tap)="onMinus(i)" class="order-minus square" text="-" verticalAlignment="center"></Button>
                                             <Label [text]="dataCatalog[categoryCatalog].qty[i]" verticalAlignment="center"></Label>
                                             <Button (tap)="onPlus(i)" class="order-plus square" text="+" verticalAlignment="center"></Button>
