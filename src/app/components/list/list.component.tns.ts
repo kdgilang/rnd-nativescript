@@ -13,30 +13,9 @@ import { CustomOrderDialogComponent } from '../custom-order-dialog/custom-order-
 })
 export class ListComponent implements OnInit {
 
-  public catalog: any;
-  private isCatalogLoaded: boolean = false;
-  private showCart: boolean = false;
-  private totalItem: number = 0;
-  private totalPrice: number = 0;
-  private categoryCatalog: number = 0;
-  private dataCatalog: any = [
-    {
-      btn: [],
-      qty: [],
-    },
-    {
-      btn: [],
-      qty: [],
-    },
-    {
-      btn: [],
-      qty: [],
-    },
-    {
-      btn: [],
-      qty: [],
-    },
-  ];
+  public catalog: CatalogModel[] = [];
+  public catalogsCart: CatalogModel[] = [];
+  public isCatalogLoaded: boolean;
 
   constructor(
     private catalogService: CatalogService,
@@ -46,45 +25,69 @@ export class ListComponent implements OnInit {
   ) {
     this.route.queryParams.subscribe(params => {
       this.isCatalogLoaded = false;
-      this.categoryCatalog = params.selectedTab;
     });
   }
 
-  onMinus(i) {
-    if(this.dataCatalog[this.categoryCatalog].qty[i] > 0) {
-      this.dataCatalog[this.categoryCatalog].qty[i] --;
-      this.totalItem --;
-      this.totalPrice = this.totalPrice - parseInt(this.catalog[i].price[0]);
-    }
-    if(this.dataCatalog[this.categoryCatalog].qty[i] <= 0) {
-      this.dataCatalog[this.categoryCatalog].btn[i] = false;
-    }
-    if(this.totalItem < 1) {
-      this.showCart = false;
+  onMinus(id: string) {
+    const selectedCartIndex = this.catalogsCart.findIndex(c => c.id === id);
+    this.catalogsCart[selectedCartIndex].quantity -= 1;
+    if (this.catalogsCart[selectedCartIndex].quantity < 1) {
+      this.catalogsCart.splice(selectedCartIndex, 1);
     }
   }
 
-  onPlus(i) {
-    this.dataCatalog[this.categoryCatalog].qty[i] ++;
-    this.totalItem ++;
-    this.totalPrice = this.totalPrice + parseInt(this.catalog[i].price[0]);
+  onPlus(id: string) {
+    this.catalogsCart.find(c => c.id === id).quantity += 1;
   }
 
-  onAdd(i) {
-    this.showCart = true;
-    this.dataCatalog[this.categoryCatalog].btn[i] = true;
-    this.dataCatalog[this.categoryCatalog].qty[i] = 1;
-    this.totalItem ++;
-    this.totalPrice = this.totalPrice + parseInt(this.catalog[i].price[0]);
+  onAdd(id: string) {
+    const selectedCatalog = this.catalog.find(c => c.id === id);
+    this.catalogsCart.push(selectedCatalog);
+    const existingCatalog = this.catalogsCart.find(c => c.id === id);
+    existingCatalog.quantity += 1;
   }
 
-  onCustom(i) {
+  onCustom(id: string) {
     const options: ModalDialogOptions = {
       viewContainerRef: this.viewContainerRef
     };
     this.modalService.showModal(CustomOrderDialogComponent, options);
   }
-  
+
+  isAddButtonVisible(id: string): boolean {
+    const selectedCatalog = this.catalogsCart.find(c => c.id === id);
+    if (!selectedCatalog) {
+      return true;
+    } else if (selectedCatalog.quantity < 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isCartButtonShow(): boolean {
+    return this.catalogsCart.length > 0;
+  }
+
+  getTotalPrice(): number {
+    return this.catalogsCart.map(c => parseInt(c.price[0], 10) * c.quantity)
+      .reduce((a, b) => a + b, 0);
+  }
+
+  getTotalQuantity(): number {
+    return this.catalogsCart.map(c => c.quantity)
+    .reduce((a, b) => a + b, 0);
+  }
+
+  getItemQuantity(id: string): number {
+    const selectedCatalog = this.catalogsCart.find(c => c.id === id);
+    if (selectedCatalog) {
+      return selectedCatalog.quantity;
+    } else {
+      return 0;
+    }
+  }
+
   ngOnInit() {
     this.isCatalogLoaded = false;
 

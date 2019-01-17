@@ -19,13 +19,13 @@
                                     <Label class="order-title" [text]='item.title' horizontalAlignment="left" textWrap="true"></Label>
                                     <Label class="order-desc" [text]="item.description" textWrap="true" horizontalAlignment="left"></Label>
                                     <StackLayout horizontalAlignment="right" verticalAlignment="bottom" orientation="horizontal">
-                                        <StackLayout visibility="{{dataCatalog[categoryCatalog].btn[i] ? 'visible' : 'collapsed'}}" orientation="horizontal" class="m-t-25">
-                                            <Button (tap)="onCustom(i)" class="order-note square icon" text="&#xe926; Custom" verticalAlignment="center"></Button>
-                                            <Button (tap)="onMinus(i)" class="order-minus square" text="-" verticalAlignment="center"></Button>
-                                            <Label [text]="dataCatalog[categoryCatalog].qty[i]" verticalAlignment="center"></Label>
-                                            <Button (tap)="onPlus(i)" class="order-plus square" text="+" verticalAlignment="center"></Button>
+                                        <StackLayout *ngIf="!isAddButtonVisible(item.id)" orientation="horizontal" class="m-t-25">
+                                            <Button (tap)="onCustom(item.id)" class="order-note square icon" text="&#xe926; Custom" verticalAlignment="center"></Button>
+                                            <Button (tap)="onMinus(item.id)" class="order-minus square" text="-" verticalAlignment="center"></Button>
+                                            <Label [text]="getItemQuantity(item.id)" verticalAlignment="center"></Label>
+                                            <Button (tap)="onPlus(item.id)" class="order-plus square" text="+" verticalAlignment="center"></Button>
                                         </StackLayout>
-                                        <Button (tap)="onAdd(i)" visibility="{{dataCatalog[categoryCatalog].btn[i] ? 'collapsed' : 'visible'}}" class="order-add" text="+ Add" android:style="height: 25; width: 70;"></Button>
+                                        <Button (tap)="onAdd(item.id)" *ngIf="isAddButtonVisible(item.id)" class="order-add" text="+ Add" android:style="height: 25; width: 70;"></Button>
                                     </StackLayout>
                                 </StackLayout>
                             </GridLayout>
@@ -38,13 +38,13 @@
                 <ActivityIndicator horizontalAlignment="center" #activityIndicator busy="{{isCatalogLoaded ? false : true}}" busyChange="" width="100" height="100" class="activity-indicator"></ActivityIndicator>
             </StackLayout>
         </StackLayout>
-        <StackLayout visibility="{{showCart ? 'visible' : 'collapsed'}}" row="1" col="0" width="100%" class="p-x-15">
+        <StackLayout *ngIf="isCartButtonShow()" row="1" col="0" width="100%" class="p-x-15">
             <StackLayout width="100%" orientation="horizontal" class="bg-red p-x-10 p-y-10 nav-bottom">
                 <StackLayout orientation="horizontal" verticaAlignment="center">
                     <Label verticaAlignment="center" class="icon icon-cart" text="&#xe900;" android:style="padding-top: 7;"></Label>
-                    <Label verticaAlignment="center" class="label" text="{{totalItem}} items"></Label>
+                    <Label verticaAlignment="center" class="label" text="{{ getTotalQuantity() }} items"></Label>
                     <Label verticaAlignment="center" class="label m-x-10" text="|"></Label>
-                    <Label verticaAlignment="center" class="label" text="Rp {{totalPrice}}"></Label>
+                    <Label verticaAlignment="center" class="label" text="Rp {{ getTotalPrice() }}"></Label>
                 </StackLayout>
                 <StackLayout width="100%" verticaAlignment="center">
                     <Label class="icon arrow-right" horizontalAlignment="right" text="&#xe902;"></Label>
