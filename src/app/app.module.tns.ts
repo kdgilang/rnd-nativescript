@@ -16,7 +16,7 @@ import { CustomOrderDialogComponent } from './components/custom-order-dialog/cus
 declare var GMSServices: any;
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from 'nativescript-angular/forms';
+import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
@@ -41,6 +41,7 @@ if (isIOS) {
   imports: [
     NativeScriptModule,
     AppRoutingModule,
+    NativeScriptFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,11 +2,11 @@
   <StackLayout margin="24" horizontalAlignment="center" verticalAlignment="top">
     <Label text="Custom Order" class="dialog-title"></Label>
     <StackLayout orientation="horizontal">
-      <TextView #customorderTextview class="customorder-textfield" hint="Write your custom order here" text=""></TextView>>
+      <TextView #customorderTextview [(ngModel)]="customNotes" class="customorder-textfield" hint="Write your custom order here" text=""></TextView>>
     </StackLayout>
     <StackLayout orientation="horizontal" horizontalAlignment="right" marginTop="12">
-      <Button class="btn secondary" text="Cancel" (tap)="close('Cancel')"></Button>
-      <Button class="btn primary" text="Done" (tap)="close('OK')"></Button>
+      <Button class="btn secondary" text="Cancel" (tap)="close(false)"></Button>
+      <Button class="btn primary" text="Done" (tap)="close(true)"></Button>
     </StackLayout>
   </StackLayout>
 </Page>

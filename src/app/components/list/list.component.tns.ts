@@ -48,10 +48,15 @@ export class ListComponent implements OnInit {
   }
 
   onCustom(id: string) {
+    const selectedCatalog = this.catalogsCart.find(c => c.id === id);
     const options: ModalDialogOptions = {
-      viewContainerRef: this.viewContainerRef
+      viewContainerRef: this.viewContainerRef,
+      context: selectedCatalog.custom
     };
-    this.modalService.showModal(CustomOrderDialogComponent, options);
+    this.modalService.showModal(CustomOrderDialogComponent, options)
+      .then(customNotes => {
+        selectedCatalog.custom = customNotes;
+      });
   }
 
   isAddButtonVisible(id: string): boolean {

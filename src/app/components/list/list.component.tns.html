@@ -20,7 +20,7 @@
                                     <Label class="order-desc" [text]="item.description" textWrap="true" horizontalAlignment="left"></Label>
                                     <StackLayout horizontalAlignment="right" verticalAlignment="bottom" orientation="horizontal">
                                         <StackLayout *ngIf="!isAddButtonVisible(item.id)" orientation="horizontal" class="m-t-25">
-                                            <Button (tap)="onCustom(item.id)" class="order-note square icon" text="&#xe926; Custom" verticalAlignment="center"></Button>
+                                            <Button (tap)="onCustom(item.id)" [class.order-note-filled]="item.custom.length > 0" class="order-note square icon" text="&#xe926; Custom" verticalAlignment="center"></Button>
                                             <Button (tap)="onMinus(item.id)" class="order-minus square" text="-" verticalAlignment="center"></Button>
                                             <Label [text]="getItemQuantity(item.id)" verticalAlignment="center"></Label>
                                             <Button (tap)="onPlus(item.id)" class="order-plus square" text="+" verticalAlignment="center"></Button>
