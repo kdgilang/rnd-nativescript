@@ -1,10 +1,10 @@
 export class CatalogModel {
-  id?: string;
+  id: string;
   title: string;
   description: string;
   category: string;
   price: any[];
   image: string;
-  quantity: number;
-  custom: string;
+  quantity?: number;
+  custom?: string;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { Page } from 'tns-core-modules/ui/page';
 import { UserModel } from '../../models/user.model';
@@ -10,17 +11,11 @@ import { UserModel } from '../../models/user.model';
 })
 
 export class HomeComponent implements OnInit {
-	private user: any;
+	private user: UserModel;
 
   constructor(private userService: UserService, private page: Page) {
   	page.actionBarHidden = true;
-    this.user = {
-			name: '',
-			nick_name: '',
-			password: '',
-			phone: '',
-			point: 0,
-		};
+    this.user = new UserModel;
   }
 
   ngOnInit() {

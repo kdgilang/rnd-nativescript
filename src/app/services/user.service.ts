@@ -8,7 +8,7 @@ import { FirebaseService } from './firebase.service';
   providedIn: 'root'
 })
 export class UserService {
-  private user: UserModel;
+  private user: UserModel[];
 	private userCollection;
   
   constructor(private fireapp: FirebaseService) {
@@ -22,7 +22,10 @@ export class UserService {
           this.userCollection = this.fireapp.Firebase.firestore().collection("users");
           this.userCollection.limit(1).get().then(querySnapshot => {
             querySnapshot.forEach(doc => {
-              this.user = doc.data();
+              this.user = {
+                id: doc.id,
+                ...doc.data(),
+              };
             });
             if(this.user) {
               observer.next(this.user);
@@ -32,9 +35,6 @@ export class UserService {
           });
         }
       });
-    });
-    // firebase.getValue('/users')
-    //       .then(result => console.log(JSON.stringify(result)))
-    //       .catch(error => console.log("Error: " + error));  	
+    }); 	
   }
 }
